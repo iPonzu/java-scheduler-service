@@ -13,7 +13,7 @@ public class ProfessionalJpaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long professionalId;
+    private Long id;
 
     @Column(name = "professional_name", nullable = false)
     private String name;
@@ -23,17 +23,17 @@ public class ProfessionalJpaEntity {
 
     public ProfessionalJpaEntity() {}
 
-    public ProfessionalJpaEntity(Long professionalId, String name, String speciality) {
-        this.professionalId = professionalId;
+    public ProfessionalJpaEntity(Long id, String name, String speciality) {
+        this.id = id;
         this.name = name;
         this.speciality = speciality;
     }
 
-    public Long getProfessionalId() { return professionalId; }
+    public Long getId() { return id; }
     public String getName() { return name; }
     public String getSpeciality() { return speciality; }
 
-    public void setProfessionalId(Long professionalId) { this.professionalId = professionalId; }
+    public void setId(Long id) { this.id = id; }
     public void setName(String name) { this.name = name; }
     public void setSpeciality(String speciality) { this.speciality = speciality; }
 }
