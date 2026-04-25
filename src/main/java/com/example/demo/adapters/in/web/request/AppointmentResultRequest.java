@@ -1,8 +1,9 @@
-package com.example.demo.application.dto.appointment;
+package com.example.demo.adapters.in.web.request;
+
 import com.example.demo.domain.enums.AppointmentStatus;
 import java.time.LocalDateTime;
 
-public record AppointmentResult(
+public record AppointmentResultRequest(
     Long id,
     String customerName,
     String serviceName,
@@ -10,7 +11,5 @@ public record AppointmentResult(
     LocalDateTime appointmentDate,
     AppointmentStatus status
 ){
-
-}
     
-
+}

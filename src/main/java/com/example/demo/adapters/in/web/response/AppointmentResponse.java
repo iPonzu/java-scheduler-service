@@ -1,5 +1,14 @@
 package com.example.demo.adapters.in.web.response;
 
-public class AppointmentResponse {
-    
+import com.example.demo.domain.enums.AppointmentStatus;
+import java.time.LocalDateTime;
+
+public record AppointmentResponse( 
+    Long id,
+    String customerName,
+    String serviceName,
+    String professionalName,
+    LocalDateTime appointmentDate,
+    AppointmentStatus status
+){
 }

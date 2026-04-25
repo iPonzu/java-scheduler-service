@@ -1,28 +1,23 @@
-package com.example.demo.domain.model;
+package com.example.demo.domain.model; 
 
 public class Professional {
-    private Long id;
+    private Long professionalId;
     private String name;
     private String speciality;
-    private String email;
 
-    public Professional(Long id, String name, String speciality, String email) {
-        this.id = id;
+    public Professional(Long professionalId, String name, String speciality) {
+        this.professionalId = professionalId;
         this.name = name;
         this.speciality = speciality;
-        this.email = email;
     }
 
-    public Long getId() {
-        return id;
+    public Long getProfessionalId() {
+        return professionalId;
     }
     public String getName() {
         return name;
     }
     public String getSpeciality() {
         return speciality;
-    }
-    public String getEmail() {
-        return email;
     }
 }

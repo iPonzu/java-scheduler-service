@@ -1,5 +1,11 @@
 package com.example.demo.adapters.out.time.adapter;
 
-public class SystemClockAdapter {
-    
+import com.example.demo.domain.ports.out.ClockPort;
+import java.time.LocalDateTime;
+
+public class SystemClockAdapter implements ClockPort {
+    @Override
+    public LocalDateTime now(){
+        return LocalDateTime.now();
+    }
 }

@@ -1,4 +1,5 @@
 package com.example.demo.domain.ports.out;
+
 import com.example.demo.domain.model.Appointment;
 
 import java.time.LocalDateTime;

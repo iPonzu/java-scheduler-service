@@ -18,7 +18,7 @@ import com.example.demo.domain.ports.out.UserRepositoryPort;
 
 public class CreateAppointmentService implements CreateAppointmentUseCase {
     private final UserRepositoryPort userRepositoryPort;
-    private final serviceRepositoryPort serviceRepositoryPort;
+    private final ServiceRepositoryPort serviceRepositoryPort;
     private final ProfessionalRepositoryPort professionalRepositoryPort;
     private final AppointmentRepositoryPort appointmentRepositoryPort;
     private final ClockPort clockPort;
@@ -52,5 +52,28 @@ public class CreateAppointmentService implements CreateAppointmentUseCase {
             throw new BusinessException("A data do agendamento deve ser no futuro");
         }
         boolean alreadyBooked = appointmentRepositoryPort
+            .existsByProfessionalIdAndAppointmentDate(professional.getProfessionalId(), command.appointmentDate());
+        if(alreadyBooked){
+            throw new AppointmentConflictException("O profissional já possui um agendamento nesse horário");
+        }
+        Appointment appointment = new Appointment(
+            null,
+            user,
+            professional,
+            serviceItem,
+            command.appointmentDate(),
+            AppointmentStatus.PENDENTE,
+            clockPort.now()
+        );
+
+        Appointment savedAppointment = appointmentRepositoryPort.save(appointment);
+        return new AppointmentResult(
+                savedAppointment.getId(),
+                savedAppointment.getUser().getName(),
+                savedAppointment.getServiceItem().getName(),
+                savedAppointment.getProfessional().getName(),
+                savedAppointment.getAppointmentDate(),
+                savedAppointment.getStatus()
+        );
     }
 }
