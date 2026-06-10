@@ -1,0 +1,3 @@
+jwt:
+  secret: my-secret-key-w-32-characters-long
+  expiration: 86400000

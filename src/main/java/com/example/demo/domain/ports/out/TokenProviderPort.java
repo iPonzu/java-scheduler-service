@@ -1,5 +1,7 @@
 package com.example.demo.domain.ports.out;
 
-public class TokenProviderPort {
-    
+public interface TokenProviderPort {
+    String generateToken(Long userId, String email);
+    boolean validateToken(String token);
+    String getEmailFromToken(String token);
 }
