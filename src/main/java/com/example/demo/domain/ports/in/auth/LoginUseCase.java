@@ -1,6 +1,9 @@
 package com.example.demo.domain.ports.in.auth;
-import org.springframework.stereotype.Service;
-@Service
-public class LoginUseCase {
-    
+
+import com.example.demo.application.dto.auth.AuthResult;
+import com.example.demo.application.dto.auth.LoginCommand;
+
+public interface LoginUseCase {
+    AuthResult execute(LoginCommand command);
 }
+

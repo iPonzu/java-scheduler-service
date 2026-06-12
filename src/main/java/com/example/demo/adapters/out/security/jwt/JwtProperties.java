@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "jwt")
 public class JwtProperties {
     private String secret;
-    private long expiration;
+    private Long expiration;
 
 
     public String getSecret() {
@@ -21,7 +21,7 @@ public class JwtProperties {
         return expiration;
     }
 
-    public void setExpiration(long expiration) {
+    public void setExpiration(Long expiration) {
         this.expiration = expiration;
     }
 }

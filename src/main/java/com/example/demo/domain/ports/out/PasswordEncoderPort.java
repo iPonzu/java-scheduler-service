@@ -1,5 +1,7 @@
 package com.example.demo.domain.ports.out;
 
-public class PasswordEncoderPort {
-    
+public interface PasswordEncoderPort {
+    boolean matches(String rawPassword, String encodedPassword);
+    String encode(String rawPassword);
 }
+

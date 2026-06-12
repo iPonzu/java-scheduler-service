@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/scheduler_db
+    username: postgres
+    password: 12345
+
+  docker:
+    compose:
+      enabled: false
+
+jwt:
+  secret: my-secret-32-character-key
+  expiration: 86400000

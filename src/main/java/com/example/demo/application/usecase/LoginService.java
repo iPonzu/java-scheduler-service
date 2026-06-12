@@ -5,6 +5,7 @@ import com.example.demo.application.dto.auth.LoginCommand;
 import com.example.demo.domain.ports.out.PasswordEncoderPort;
 import com.example.demo.domain.ports.out.TokenProviderPort;
 import com.example.demo.domain.ports.out.UserRepositoryPort;
+import com.example.demo.domain.ports.in.auth.LoginUseCase;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -30,7 +31,8 @@ public class LoginService implements LoginUseCase {
         if(!passwordEncoder.matches(command.password(), user.getPassword())){
             throw new RuntimeException("Senha incorreta");
         }
-        String token = tokenProvider.generateToken(user.getEmail());
+        String token = tokenProvider.generateToken(user.getId(), user.getEmail());
         return new AuthResult(token);
+
     }
 }
