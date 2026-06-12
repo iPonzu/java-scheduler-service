@@ -22,14 +22,14 @@ public class ProfessionalPersistenceAdapter implements ProfessionalRepositoryPor
     }
     private Professional toDomain(ProfessionalJpaEntity entity){
         return new Professional(
-            entity.getProfessionalId(),
+            entity.getId(),
             entity.getName(),
             entity.getSpeciality()
         );
     }   
     private ProfessionalJpaEntity toEntity(Professional professional){
         return new ProfessionalJpaEntity(
-            professional.getProfessionalId(),
+            professional.getId(),
             professional.getName(),
             professional.getSpeciality()
         );

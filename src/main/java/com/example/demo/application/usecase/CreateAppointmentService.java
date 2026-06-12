@@ -52,7 +52,7 @@ public class CreateAppointmentService implements CreateAppointmentUseCase {
             throw new BusinessException("A data do agendamento deve ser no futuro");
         }
         boolean alreadyBooked = appointmentRepositoryPort
-            .existsByProfessionalIdAndAppointmentDate(professional.getProfessionalId(), command.appointmentDate());
+            .existsByProfessionalIdAndAppointmentDate(professional.getId(), command.appointmentDate());
         if(alreadyBooked){
             throw new AppointmentConflictException("O profissional já possui um agendamento nesse horário");
         }
