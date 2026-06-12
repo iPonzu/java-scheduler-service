@@ -1,15 +1,10 @@
 package com.example.demo.config.bean;
 
+import com.example.demo.application.usecase.CreateAppointmentService;
+import com.example.demo.domain.ports.out.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import com.example.demo.application.usecase.appointment.CreateAppointmentService;
-import com.example.demo.domain.ports.in.appointment.CreateAppointmentUseCase;
-import com.example.demo.domain.ports.out.AppointmentRepositoryPort;
-import com.example.demo.domain.ports.out.ClockPort;
-import com.example.demo.domain.ports.out.ProfessionalRepositoryPort;
-import com.example.demo.domain.ports.out.ServiceRepositoryPort;
-import com.example.demo.domain.ports.out.UserRepositoryPort;
+import com.example.demo.domain.ports.in.CreateAppointmentUseCase;
 
 @Configuration
 public class UseConfig {

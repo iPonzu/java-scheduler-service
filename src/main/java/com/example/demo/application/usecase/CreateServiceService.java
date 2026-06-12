@@ -1,5 +1,5 @@
 package com.example.demo.application.usecase;
 
-public class LoginService {
+public class CreateServiceService {
     
 }

@@ -4,15 +4,12 @@ import com.example.demo.adapters.in.web.request.CreateAppointmentRequest;
 import com.example.demo.adapters.in.web.response.AppointmentResponse;
 import com.example.demo.application.dto.appointment.AppointmentResult;
 import com.example.demo.application.dto.appointment.CreateAppointmentCommand;
-import com.example.demo.domain.ports.in.appointment.CreateAppointmentUseCase;
-
+import com.example.demo.domain.ports.in.CreateAppointmentUseCase;
 import jakarta.validation.Valid;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
-
 
 @RestController
 @RequestMapping("/appointments")

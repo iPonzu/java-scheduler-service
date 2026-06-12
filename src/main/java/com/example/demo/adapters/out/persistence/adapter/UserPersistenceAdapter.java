@@ -1,18 +1,16 @@
 package com.example.demo.adapters.out.persistence.adapter;
 
-import java.util.Optional;
-
-import org.springframework.stereotype.Component;
-
 import com.example.demo.adapters.out.persistence.entity.UserJpaEntity;
 import com.example.demo.adapters.out.persistence.repository.SpringDataUserRepository;
-import com.example.demo.domain.model.User;
 import com.example.demo.domain.ports.out.UserRepositoryPort;
+import com.example.demo.domain.model.User;
+import org.springframework.stereotype.Component;
+import java.util.Optional;
 
 @Component
 public class UserPersistenceAdapter implements UserRepositoryPort {
     private final SpringDataUserRepository repository;
-
+    
     public UserPersistenceAdapter(SpringDataUserRepository repository){
         this.repository = repository;
     }
@@ -21,15 +19,6 @@ public class UserPersistenceAdapter implements UserRepositoryPort {
     public Optional<User> findById(Long id){
         return repository.findById(id)
             .map(this::toDomain);
-    }
-    @Override
-    public Optional<User> findByEmail(String email) {
-        return repository.findByEmail(email)
-            .map(this::toDomain);
-}
-    @Override
-    public User save(User user){
-        return this.toDomain(repository.save(this.toEntity(user)));
     }
     private User toDomain(UserJpaEntity entity){
         return new User(
@@ -40,7 +29,6 @@ public class UserPersistenceAdapter implements UserRepositoryPort {
             entity.getRole()
         );
     }
-
     private UserJpaEntity toEntity(User user){
         return new UserJpaEntity(
             user.getId(),

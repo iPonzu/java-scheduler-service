@@ -1,4 +1,4 @@
-package com.example.demo.application.usecase.appointment;
+package com.example.demo.application.usecase;
 import com.example.demo.application.dto.appointment.AppointmentResult;
 import com.example.demo.application.dto.appointment.CreateAppointmentCommand;
 import com.example.demo.domain.enums.AppointmentStatus;
@@ -9,7 +9,7 @@ import com.example.demo.domain.model.Appointment;
 import com.example.demo.domain.model.Professional;
 import com.example.demo.domain.model.ServiceItem;
 import com.example.demo.domain.model.User;
-import com.example.demo.domain.ports.in.appointment.CreateAppointmentUseCase;
+import com.example.demo.domain.ports.in.CreateAppointmentUseCase;
 import com.example.demo.domain.ports.out.AppointmentRepositoryPort;
 import com.example.demo.domain.ports.out.ClockPort;
 import com.example.demo.domain.ports.out.ProfessionalRepositoryPort;
