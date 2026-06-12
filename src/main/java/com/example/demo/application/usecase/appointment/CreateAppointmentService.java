@@ -15,6 +15,7 @@ import com.example.demo.domain.ports.out.ClockPort;
 import com.example.demo.domain.ports.out.ProfessionalRepositoryPort;
 import com.example.demo.domain.ports.out.ServiceRepositoryPort;
 import com.example.demo.domain.ports.out.UserRepositoryPort;
+import java.time.LocalDateTime;
 
 public class CreateAppointmentService implements CreateAppointmentUseCase {
     private final UserRepositoryPort userRepositoryPort;
@@ -48,7 +49,9 @@ public class CreateAppointmentService implements CreateAppointmentUseCase {
         Professional professional = professionalRepositoryPort.findById(command.professionalId())
             .orElseThrow(() -> new ResourceNotFoundException("Profissional não encontrado"));
 
-        if(command.appointmentDate().isBefore(clockPort.now())){
+        LocalDateTime now = clockPort.now();
+        
+        if(command.appointmentDate().isBefore(now)){
             throw new BusinessException("A data do agendamento deve ser no futuro");
         }
         boolean alreadyBooked = appointmentRepositoryPort
