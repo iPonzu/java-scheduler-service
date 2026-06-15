@@ -14,7 +14,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 
 @Component
-public class JwtTokenProvider implements TokenProviderPort{
+public class JwtTokenProvider {
     private final JwtProperties jwtProperties;
 
     public JwtTokenProvider(JwtProperties jwtProperties) {
@@ -23,7 +23,6 @@ public class JwtTokenProvider implements TokenProviderPort{
     public SecretKey getKey() {
         return Keys.hmacShaKeyFor(jwtProperties.getSecret().getBytes(StandardCharsets.UTF_8));
     }
-    @Override
     public String generateToken(Long userId, String email) {
         return Jwts.builder()
                 .subject(email)
@@ -38,7 +37,6 @@ public class JwtTokenProvider implements TokenProviderPort{
                 .signWith(getKey())
                 .compact();
     }
-    @Override
     public boolean validateToken(String token){
         try{
             Jwts.parser()
@@ -50,7 +48,6 @@ public class JwtTokenProvider implements TokenProviderPort{
             return false;
         }
     }
-    @Override
     public String getEmailFromToken(String token){
         Claims claims = Jwts.parser()
                 .verifyWith(getKey())

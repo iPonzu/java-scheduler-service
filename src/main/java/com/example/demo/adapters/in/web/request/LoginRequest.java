@@ -1,5 +1,6 @@
 package com.example.demo.adapters.in.web.request;
 
-public class LoginRequest {
-    
-}
+public record LoginRequest(
+    String email,
+    String password
+) {}

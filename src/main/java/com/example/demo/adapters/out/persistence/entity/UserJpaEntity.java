@@ -29,7 +29,13 @@ public class UserJpaEntity {
 
     public UserJpaEntity() {}
 
-    public UserJpaEntity(Long userId, String name, String email, String password, Role role){
+    public UserJpaEntity(
+        Long userId, 
+        String name, 
+        String email, 
+        String password, 
+        Role role
+    ){
         this.userId = userId;
         this.name = name;
         this.email = email;
@@ -43,7 +49,7 @@ public class UserJpaEntity {
     public String getPassword() { return password; }
     public Role getRole() { return role; }
 
-    public void setUserId(Long id) {this.userId = userId; }
+    public void setUserId(Long id) {this.userId = id; }
     public void setName(String name) { this.name = name; }
     public void setEmail(String email) {this.email = email; }
     public void setPassword(String password) {this.password = password; }

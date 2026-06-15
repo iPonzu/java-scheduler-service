@@ -1,13 +1,24 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/scheduler_db
+    url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
     password: 12345
+    driver-class-name: org.postgresql.Driver
 
+  spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
   docker:
     compose:
       enabled: false
 
 jwt:
-  secret: my-secret-32-character-key
+  secret: my-secret-key-with-at-least-32-characters
   expiration: 86400000
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.schema: DEBUG

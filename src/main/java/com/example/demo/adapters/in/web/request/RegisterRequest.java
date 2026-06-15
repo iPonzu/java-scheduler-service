@@ -1,5 +1,7 @@
 package com.example.demo.adapters.in.web.request;
 
-public class RegisterRequest {
-    
-}
+public record RegisterRequest(
+    String name,
+    String email,
+    String password
+) {}
