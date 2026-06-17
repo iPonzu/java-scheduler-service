@@ -8,7 +8,13 @@ public class ServiceItem {
     private Integer durationInMinutes;
     private BigDecimal price;
 
-    public ServiceItem(Long id, String name, String description, Integer durationInMinutes, BigDecimal price) {
+    public ServiceItem(
+        Long id, 
+        String name, 
+        String description, 
+        Integer durationInMinutes, 
+        BigDecimal price
+    ) {
         this.id = id;
         this.name = name;
         this.description = description;

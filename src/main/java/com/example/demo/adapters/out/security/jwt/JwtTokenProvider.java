@@ -7,7 +7,6 @@ import javax.crypto.SecretKey;
 
 import org.springframework.stereotype.Component;
 
-import com.example.demo.domain.ports.out.TokenProviderPort;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

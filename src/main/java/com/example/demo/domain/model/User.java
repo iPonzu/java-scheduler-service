@@ -23,7 +23,6 @@ public class User{
         this.role = role;
     }
     
-    
     public boolean isAdmin() {
         return Role.ADMIN.equals(this.role);
     }
@@ -47,4 +46,3 @@ public class User{
     }
 
 }
-

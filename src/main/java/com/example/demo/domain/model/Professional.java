@@ -5,7 +5,11 @@ public class Professional {
     private String name;
     private String speciality;
 
-    public Professional(Long id, String name, String speciality) {
+    public Professional(
+        Long id, 
+        String name, 
+        String speciality
+    ) {
         this.id = id;
         this.name = name;
         this.speciality = speciality;
